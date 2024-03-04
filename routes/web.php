@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\LessonController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::apiResource('students', StudentController::class);
+Route::apiResource('teachers', TeacherController::class);
+Route::apiResource('lessons', LessonController::class);
