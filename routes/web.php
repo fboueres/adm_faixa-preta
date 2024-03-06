@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::apiResource('students', StudentController::class);
-Route::apiResource('teachers', TeacherController::class);
-Route::apiResource('lessons', LessonController::class);
+Route::resource('students', StudentController::class);
+Route::resource('teachers', TeacherController::class);
+Route::resource('lessons', LessonController::class);
