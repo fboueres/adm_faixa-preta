@@ -29,18 +29,20 @@ class StudentController extends Controller
      */
     public function store(StudentRequest $request)
     {
-        $student = DB::transaction(function () use ($request) {
-            $student = Student::create($request->validated('student'));
+        dd($request->all());
+        
+        // $student = DB::transaction(function () use ($request) {
+        //     $student = Student::create($request->validated('student'));
             
-            $student->address()->create($request->validated('address'));
+        //     $student->address()->create($request->validated('address'));
 
-            if ($request->has('guardians'))
-                $student->guardians()->createMany($request->validated('guardians'));
+        //     if ($request->has('guardians'))
+        //         $student->guardians()->createMany($request->validated('guardians'));
 
-            return $student;
-        });
+        //     return $student;
+        // });
 
-        return redirect()->route('students.show', $student);
+        // return redirect()->route('students.show', $student);
     }
 
     /**

@@ -23,27 +23,28 @@ class StudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'student' => 'required|array',
+            'student' => 'required|array|min:7|max:8',
             'student.cpf' => 'required|string',
             'student.full_name' => 'required|string',
             'student.birth_date' => 'required|date',
             'student.gender' => ['required', Rule::in(['M', 'F'])],
             'student.rank' => 'required|string',
             'student.enrollment_date' => 'required|date',
-            'student.email' => 'nullable|email|required_without:phone_number',
-            'student.phone_number' => 'nullable|string|required_without:email',
+            'student.email' => 'required|email|required_without:phone_number',
+            'student.phone_number' => 'required|string|required_without:email',
 
-            'address' => 'required|array',
+            'address' => 'required|array|size:5',
             'address.cep' => 'required|string',
             'address.rua' => 'required|string',
             'address.bairro' => 'required|string',
             'address.quadra' => 'required|string',
             'address.numero' => 'required|string',
 
-            'guardians' => 'nullable|array',
-            'guardians.cpf' => 'required|string',
-            'guardians.full_name' => 'required|string',
-            'guardians.affiliation' => 'required|string',
+            'guardians' => 'required|array|size:2',
+            'guardians.*' => 'required|array',
+            'guardians.*.cpf' => 'required|string',
+            'guardians.*.full_name' => 'required|string',
+            'guardians.*.affiliation' => 'required|string',
         ];
     }
 }
