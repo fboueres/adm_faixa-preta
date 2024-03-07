@@ -91,8 +91,8 @@
                     name="student[gender]"
                 >
                     <option disabled selected value>Selecione</option>
-                    <option value="M">Masculino</option>
-                    <option value="F">Feminino</option>
+                    <option @if((old('student.gender') ==  'M')) selected @endif value="M">Masculino</option>
+                    <option @if((old('student.gender') ==  'F')) selected @endif value="F">Feminino</option>
                 </select>
                 @error("student.gender")
                     <span class="text-red-500 truncate">
@@ -110,7 +110,7 @@
                 <input
                     type="email"
                     name="student[email]"
-                    value="{{ old("student.email") }}"
+                    value="{{ old('student.email') }}"
                     class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.cpf")
@@ -129,6 +129,7 @@
                 <input
                     type="date"
                     name="student[enrollment_date]"
+                    value="{{ old("student.enrollment_date") }}"
                     class="focus:shadow-outline @error('student.enrollment_date') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.enrollment_date")
@@ -147,6 +148,7 @@
                 <input
                     type="text"
                     name="student[phone_number]"
+                    value="{{ old('student.phone_number') }}"
                     class="focus:shadow-outline @error('student.phone_number') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.phone_number")
@@ -165,6 +167,7 @@
                 <input
                     type="text"
                     name="student[rank]"
+                    value="{{ old('student.rank') }}"
                     class="focus:shadow-outline @error('student.rank') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.rank")
@@ -204,6 +207,7 @@
                     <input
                         type="text"
                         name="address[cep]"
+                        value="{{ old('address.cep') }}"
                         class="focus:shadow-outline @error('address.cep') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.cep")
@@ -222,6 +226,7 @@
                     <input
                         type="text"
                         name="address[bairro]"
+                        value="{{ old('address.bairro') }}"
                         class="focus:shadow-outline @error('address.bairro') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.bairro")
@@ -240,6 +245,7 @@
                     <input
                         type="text"
                         name="address[rua]"
+                        value="{{ old('address.rua') }}"
                         class="focus:shadow-outline @error('address.rua') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.rua")
@@ -258,6 +264,7 @@
                     <input
                         type="text"
                         name="address[quadra]"
+                        value="{{ old('address.quadra') }}"
                         class="focus:shadow-outline @error('address.quadra') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.quadra")
@@ -276,6 +283,7 @@
                     <input
                         type="text"
                         name="address[numero]"
+                        value="{{ old('address.numero') }}"
                         class="focus:shadow-outline @error('address.rua') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.numero")
@@ -301,6 +309,7 @@
                     <input
                         type="text"
                         name="guardians[0][cpf]"
+                        value="{{ old('guardians.0.cpf') }}"
                         class="focus:shadow-outline @error('guardians.0.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.0.cpf")
@@ -319,6 +328,7 @@
                     <input
                         type="text"
                         name="guardians[0][full_name]"
+                        value="{{ old('guardians.0.full_name') }}"
                         class="focus:shadow-outline @error('guardians.0.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.0.full_name")
@@ -337,6 +347,7 @@
                     <input
                         type="text"
                         name="guardians[0][affiliation]"
+                        value="{{ old('guardians.0.affiliation') }}"
                         class="focus:shadow-outline @error('guardians.0.affiliation') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.0.affiliation")
@@ -357,6 +368,7 @@
                     <input
                         type="text"
                         name="guardians[1][cpf]"
+                        value="{{ old('guardians.1.cpf') }}"
                         class="focus:shadow-outline @error('guardians.1.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.1.cpf")
@@ -375,6 +387,7 @@
                     <input
                         type="text"
                         name="guardians[1][full_name]"
+                        value="{{ old('guardians.1.full_name') }}"
                         class="focus:shadow-outline @error('guardians.1.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.1.full_name")
@@ -393,6 +406,7 @@
                     <input
                         type="text"
                         name="guardians[1][affiliation]"
+                        value="{{ old('guardians.1.affiliation') }}"
                         class="focus:shadow-outline @error('guardians.1.affiliation') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.1.affiliation")
