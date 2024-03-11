@@ -40,6 +40,13 @@ class Student extends Model
     ];
 
     /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['address'];
+    
+    /**
      * Get the address related to the student.
      */
     public function address()

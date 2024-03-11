@@ -18,9 +18,7 @@
 <section class="mb-3 w-full rounded-lg border-2 px-3 py-5">
     <div class="flex flex-row">
         <div class="flex w-2/3 flex-wrap">
-            <div
-                class="@error('student.cpf') mb-3 @else mb-5 @enderror w-4/12"
-            >
+            <div class="@error('student.cpf') mb-3 @else mb-5 @enderror w-4/12">
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
                     for="student[cpf]"
@@ -30,13 +28,11 @@
                 <input
                     type="text"
                     name="student[cpf]"
-                    value="{{ old("student.cpf") }}"
+                    value="{{ old("student.cpf", $student->cpf) }}"
                     class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.cpf")
-                    <span class="text-red-500 truncate">
-                        * Insira o CPF
-                    </span>
+                    <span class="truncate text-red-500">* Insira o CPF</span>
                 @enderror
             </div>
             <div
@@ -51,16 +47,18 @@
                 <input
                     type="text"
                     name="student[full_name]"
-                    value="{{ old("student.full_name") }}"
+                    value="{{ old("student.full_name", $student->full_name) }}"
                     class="focus:shadow-outline @error('student.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.full_name")
-                    <span class="text-red-500 truncate">
+                    <span class="truncate text-red-500">
                         * Insira o nome completo
                     </span>
                 @enderror
             </div>
-            <div class="@error('student.birth_date') mb-3 @else mb-5 @enderror w-4/12">
+            <div
+                class="@error('student.birth_date') mb-3 @else mb-5 @enderror w-4/12"
+            >
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
                     for="student[birth_date]"
@@ -70,16 +68,18 @@
                 <input
                     type="date"
                     name="student[birth_date]"
-                    value="{{ old("student.birth_date") }}"
+                    value="{{ old("student.birth_date", $student->birth_date) }}"
                     class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.birth_date")
-                    <span class="text-red-500 truncate">
+                    <span class="truncate text-red-500">
                         * Insira a data de nascimento
                     </span>
                 @enderror
             </div>
-            <div class="@error('student.cpf') mb-3 @else mb-5 @enderror w-3/12 pl-4">
+            <div
+                class="@error('student.cpf') mb-3 @else mb-5 @enderror w-3/12 pl-4"
+            >
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
                     for="student[gender]"
@@ -91,16 +91,26 @@
                     name="student[gender]"
                 >
                     <option disabled selected value>Selecione</option>
-                    <option @if((old('student.gender') ==  'M')) selected @endif value="M">Masculino</option>
-                    <option @if((old('student.gender') ==  'F')) selected @endif value="F">Feminino</option>
+                    <option
+                        @if((old('student.gender', $student->gender) ==  'M')) selected @endif
+                        value="M"
+                    >
+                        Masculino
+                    </option>
+                    <option
+                        @if((old('student.gender', $student->gender) ==  'F')) selected @endif
+                        value="F"
+                    >
+                        Feminino
+                    </option>
                 </select>
                 @error("student.gender")
-                    <span class="text-red-500 truncate">
-                        * Insira o gênero
-                    </span>
+                    <span class="truncate text-red-500">* Insira o gênero</span>
                 @enderror
             </div>
-            <div class="@error('student.email') mb-3 @else mb-5 @enderror w-5/12 pl-4">
+            <div
+                class="@error('student.email') mb-3 @else mb-5 @enderror w-5/12 pl-4"
+            >
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
                     for="name=student[email]"
@@ -110,13 +120,11 @@
                 <input
                     type="email"
                     name="student[email]"
-                    value="{{ old('student.email') }}"
+                    value="{{ old("student.email", $student->email) }}"
                     class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.cpf")
-                    <span class="text-red-500 truncate">
-                        * Insira o e-mail
-                    </span>
+                    <span class="truncate text-red-500">* Insira o e-mail</span>
                 @enderror
             </div>
             <div class="w-2/6">
@@ -129,11 +137,11 @@
                 <input
                     type="date"
                     name="student[enrollment_date]"
-                    value="{{ old("student.enrollment_date") }}"
+                    value="{{ old("student.enrollment_date", $student->enrollment_date) }}"
                     class="focus:shadow-outline @error('student.enrollment_date') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.enrollment_date")
-                    <span class="text-red-500 truncate">
+                    <span class="truncate text-red-500">
                         * Insira a data de matrícula
                     </span>
                 @enderror
@@ -148,11 +156,11 @@
                 <input
                     type="text"
                     name="student[phone_number]"
-                    value="{{ old('student.phone_number') }}"
+                    value="{{ old("student.phone_number", $student->phone_number) }}"
                     class="focus:shadow-outline @error('student.phone_number') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.phone_number")
-                    <span class="text-red-500 truncate">
+                    <span class="truncate text-red-500">
                         * Insira o número de telefone
                     </span>
                 @enderror
@@ -167,13 +175,11 @@
                 <input
                     type="text"
                     name="student[rank]"
-                    value="{{ old('student.rank') }}"
+                    value="{{ old("student.rank", $student->rank) }}"
                     class="focus:shadow-outline @error('student.rank') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.rank")
-                    <span class="text-red-500 truncate">
-                        * Insira o Grau
-                    </span>
+                    <span class="truncate text-red-500">* Insira o Grau</span>
                 @enderror
             </div>
         </div>
@@ -207,11 +213,11 @@
                     <input
                         type="text"
                         name="address[cep]"
-                        value="{{ old('address.cep') }}"
+                        value="{{ old("address.cep", $student->address->cep) }}"
                         class="focus:shadow-outline @error('address.cep') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.cep")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira o CEP
                         </span>
                     @enderror
@@ -226,11 +232,11 @@
                     <input
                         type="text"
                         name="address[bairro]"
-                        value="{{ old('address.bairro') }}"
+                        value="{{ old("address.bairro", $student->address->bairro) }}"
                         class="focus:shadow-outline @error('address.bairro') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.bairro")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira o bairro
                         </span>
                     @enderror
@@ -245,11 +251,11 @@
                     <input
                         type="text"
                         name="address[rua]"
-                        value="{{ old('address.rua') }}"
+                        value="{{ old("address.rua", $student->address->rua) }}"
                         class="focus:shadow-outline @error('address.rua') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.rua")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira a rua
                         </span>
                     @enderror
@@ -264,11 +270,11 @@
                     <input
                         type="text"
                         name="address[quadra]"
-                        value="{{ old('address.quadra') }}"
+                        value="{{ old("address.quadra", $student->address->quadra) }}"
                         class="focus:shadow-outline @error('address.quadra') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.quadra")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira a quadra
                         </span>
                     @enderror
@@ -283,11 +289,11 @@
                     <input
                         type="text"
                         name="address[numero]"
-                        value="{{ old('address.numero') }}"
+                        value="{{ old("address.numero", $student->address->numero) }}"
                         class="focus:shadow-outline @error('address.rua') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.numero")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira o número
                         </span>
                     @enderror
@@ -309,11 +315,11 @@
                     <input
                         type="text"
                         name="guardians[0][cpf]"
-                        value="{{ old('guardians.0.cpf') }}"
+                        value="{{ old("guardians.0.cpf") }}"
                         class="focus:shadow-outline @error('guardians.0.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.0.cpf")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira o CPF
                         </span>
                     @enderror
@@ -328,11 +334,11 @@
                     <input
                         type="text"
                         name="guardians[0][full_name]"
-                        value="{{ old('guardians.0.full_name') }}"
+                        value="{{ old("guardians.0.full_name") }}"
                         class="focus:shadow-outline @error('guardians.0.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.0.full_name")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira o nome completo
                         </span>
                     @enderror
@@ -347,11 +353,11 @@
                     <input
                         type="text"
                         name="guardians[0][affiliation]"
-                        value="{{ old('guardians.0.affiliation') }}"
+                        value="{{ old("guardians.0.affiliation") }}"
                         class="focus:shadow-outline @error('guardians.0.affiliation') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.0.affiliation")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira a afiliação
                         </span>
                     @enderror
@@ -368,11 +374,11 @@
                     <input
                         type="text"
                         name="guardians[1][cpf]"
-                        value="{{ old('guardians.1.cpf') }}"
+                        value="{{ old("guardians.1.cpf") }}"
                         class="focus:shadow-outline @error('guardians.1.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.1.cpf")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira o CPF
                         </span>
                     @enderror
@@ -387,11 +393,11 @@
                     <input
                         type="text"
                         name="guardians[1][full_name]"
-                        value="{{ old('guardians.1.full_name') }}"
+                        value="{{ old("guardians.1.full_name") }}"
                         class="focus:shadow-outline @error('guardians.1.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.1.full_name")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira o nome completo
                         </span>
                     @enderror
@@ -406,11 +412,11 @@
                     <input
                         type="text"
                         name="guardians[1][affiliation]"
-                        value="{{ old('guardians.1.affiliation') }}"
+                        value="{{ old("guardians.1.affiliation") }}"
                         class="focus:shadow-outline @error('guardians.1.affiliation') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.1.affiliation")
-                        <span class="text-red-500 truncate">
+                        <span class="truncate text-red-500">
                             * Insira a afiliação
                         </span>
                     @enderror

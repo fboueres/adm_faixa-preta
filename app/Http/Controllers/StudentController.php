@@ -13,7 +13,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return Student::all();
+        $students = Student::all();
+
+        return view('students.index', compact('students'));
     }
 
     /**
@@ -34,8 +36,8 @@ class StudentController extends Controller
             
             $student->address()->create($request->validated('address'));
 
-            if (array_key_exists('guardians', $request->validated()))
-                $student->guardians()->createMany($request->validated('guardians'));
+            // if (array_key_exists('guardians', $request->validated()))
+            //     $student->guardians()->createMany($request->validated('guardians'));
 
             return $student;
         });
@@ -56,7 +58,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -69,9 +71,9 @@ class StudentController extends Controller
 
             $student->address()->update($request->validated('address'));
 
-            $student->guardians->delete();
-            if ($request->has('guardians'))
-                $student->guardians()->createMany($request->validated('guardians'));
+            // $student->guardians->delete();
+            // if ($request->has('guardians'))
+            //     $student->guardians()->createMany($request->validated('guardians'));
         });
 
         return redirect()->route('students.show', $student);
