@@ -50,7 +50,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return $student;
+        return redirect()->route('student.edit', $student);
     }
 
     /**

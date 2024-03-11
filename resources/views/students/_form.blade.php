@@ -1,15 +1,15 @@
 <section class="mb-3 flex w-full items-center">
     <h1 class="self-end text-xl font-bold">Dados do Aluno</h1>
-    <button
-        type="button"
-        class="focus:shadow-outline ml-auto w-[12%] appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow transition-transform duration-200 ease-in-out focus:outline-none active:scale-90"
+    <a
+        href="{{ route("students.index") }}"
+        class="focus:shadow-outline ml-auto appearance-none rounded border px-5 py-2 leading-tight text-gray-700 shadow transition-transform duration-200 ease-in-out focus:outline-none active:scale-90"
     >
         <i class="fa-solid fa-arrow-left mr-2"></i>
         Voltar
-    </button>
+    </a>
     <button
         type="submit"
-        class="focus:shadow-outline ml-3 w-[12%] appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow transition-transform duration-200 ease-in-out focus:outline-none active:scale-90"
+        class="focus:shadow-outline ml-3 appearance-none rounded border px-5 py-2 leading-tight text-gray-700 shadow transition-transform duration-200 ease-in-out focus:outline-none active:scale-90"
     >
         <i class="fa-solid fa-plus mr-2"></i>
         Salvar
@@ -28,7 +28,7 @@
                 <input
                     type="text"
                     name="student[cpf]"
-                    value="{{ old("student.cpf", $student->cpf) }}"
+                    value="{{ old("student.cpf", @$student->cpf) }}"
                     class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.cpf")
@@ -47,7 +47,7 @@
                 <input
                     type="text"
                     name="student[full_name]"
-                    value="{{ old("student.full_name", $student->full_name) }}"
+                    value="{{ old("student.full_name", @$student->full_name) }}"
                     class="focus:shadow-outline @error('student.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.full_name")
@@ -68,7 +68,7 @@
                 <input
                     type="date"
                     name="student[birth_date]"
-                    value="{{ old("student.birth_date", $student->birth_date) }}"
+                    value="{{ old("student.birth_date", @$student->getRawOriginal("birth_date")) }}"
                     class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.birth_date")
@@ -92,13 +92,13 @@
                 >
                     <option disabled selected value>Selecione</option>
                     <option
-                        @if((old('student.gender', $student->gender) ==  'M')) selected @endif
+                        @if((old('student.gender', @$student->gender) ==  'M')) selected @endif
                         value="M"
                     >
                         Masculino
                     </option>
                     <option
-                        @if((old('student.gender', $student->gender) ==  'F')) selected @endif
+                        @if((old('student.gender', @$student->gender) ==  'F')) selected @endif
                         value="F"
                     >
                         Feminino
@@ -120,7 +120,7 @@
                 <input
                     type="email"
                     name="student[email]"
-                    value="{{ old("student.email", $student->email) }}"
+                    value="{{ old("student.email", @$student->email) }}"
                     class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.cpf")
@@ -137,7 +137,7 @@
                 <input
                     type="date"
                     name="student[enrollment_date]"
-                    value="{{ old("student.enrollment_date", $student->enrollment_date) }}"
+                    value="{{ old("student.enrollment_date", @$student->getRawOriginal('enrollment_date')) }}"
                     class="focus:shadow-outline @error('student.enrollment_date') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.enrollment_date")
@@ -156,7 +156,7 @@
                 <input
                     type="text"
                     name="student[phone_number]"
-                    value="{{ old("student.phone_number", $student->phone_number) }}"
+                    value="{{ old("student.phone_number", @$student->phone_number) }}"
                     class="focus:shadow-outline @error('student.phone_number') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.phone_number")
@@ -175,7 +175,7 @@
                 <input
                     type="text"
                     name="student[rank]"
-                    value="{{ old("student.rank", $student->rank) }}"
+                    value="{{ old("student.rank", @$student->rank) }}"
                     class="focus:shadow-outline @error('student.rank') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.rank")
@@ -213,7 +213,7 @@
                     <input
                         type="text"
                         name="address[cep]"
-                        value="{{ old("address.cep", $student->address->cep) }}"
+                        value="{{ old("address.cep", @$student->address->cep) }}"
                         class="focus:shadow-outline @error('address.cep') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.cep")
@@ -232,7 +232,7 @@
                     <input
                         type="text"
                         name="address[bairro]"
-                        value="{{ old("address.bairro", $student->address->bairro) }}"
+                        value="{{ old("address.bairro", @$student->address->bairro) }}"
                         class="focus:shadow-outline @error('address.bairro') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.bairro")
@@ -251,7 +251,7 @@
                     <input
                         type="text"
                         name="address[rua]"
-                        value="{{ old("address.rua", $student->address->rua) }}"
+                        value="{{ old("address.rua", @$student->address->rua) }}"
                         class="focus:shadow-outline @error('address.rua') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.rua")
@@ -270,7 +270,7 @@
                     <input
                         type="text"
                         name="address[quadra]"
-                        value="{{ old("address.quadra", $student->address->quadra) }}"
+                        value="{{ old("address.quadra", @$student->address->quadra) }}"
                         class="focus:shadow-outline @error('address.quadra') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.quadra")
@@ -289,7 +289,7 @@
                     <input
                         type="text"
                         name="address[numero]"
-                        value="{{ old("address.numero", $student->address->numero) }}"
+                        value="{{ old("address.numero", @$student->address->numero) }}"
                         class="focus:shadow-outline @error('address.rua') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("address.numero")
