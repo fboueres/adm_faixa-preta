@@ -68,7 +68,7 @@
                 <input
                     type="date"
                     name="student[birth_date]"
-                    value="{{ old("student.birth_date", @$student->getRawOriginal("birth_date")) }}"
+                    value="{{ old("student.enrollment_date", isset($student) ? $student->getRawOriginal('birth_date') : '') }}"
                     class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.birth_date")
@@ -137,7 +137,7 @@
                 <input
                     type="date"
                     name="student[enrollment_date]"
-                    value="{{ old("student.enrollment_date", @$student->getRawOriginal('enrollment_date')) }}"
+                    value="{{ old("student.enrollment_date", isset($student) ? $student->getRawOriginal('enrollment_date') : '') }}"
                     class="focus:shadow-outline @error('student.enrollment_date') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.enrollment_date")

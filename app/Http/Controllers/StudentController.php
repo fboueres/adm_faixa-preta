@@ -42,7 +42,7 @@ class StudentController extends Controller
             return $student;
         });
 
-        return redirect()->route('students.show', $student);
+        return redirect()->route('students.index', $student);
     }
 
     /**
@@ -50,7 +50,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return redirect()->route('student.edit', $student);
+        return redirect()->route('students.edit', $student);
     }
 
     /**
@@ -76,7 +76,7 @@ class StudentController extends Controller
             //     $student->guardians()->createMany($request->validated('guardians'));
         });
 
-        return redirect()->route('students.show', $student);
+        return redirect()->route('students.index', $student);
     }
 
     /**
