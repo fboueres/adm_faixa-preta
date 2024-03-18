@@ -34,10 +34,16 @@ class StudentController extends Controller
         $student = DB::transaction(function () use ($request) {
             $student = Student::create($request->validated('student'));
             
-            $student->address()->create($request->validated('address'));
+            if (!empty($request->validated('address')['cep']))
+                $student->address()->create($request->validated('address'));
 
-            // if (array_key_exists('guardians', $request->validated()))
-            //     $student->guardians()->createMany($request->validated('guardians'));
+            $guardians = [];
+            foreach ($request->validated('guardians') as $guardian)
+                if (!empty($guardian['cpf']))
+                    array_push($guardians, $guardian);
+                
+            if (!empty($guardians))
+                $student->guardians()->createMany($request->validated('guardians'));
 
             return $student;
         });
@@ -69,11 +75,17 @@ class StudentController extends Controller
         DB::transaction(function () use ($request, $student) {
             $student->update($request->validated('student'));
 
-            $student->address()->update($request->validated('address'));
+            if (!empty($request->validated('address')['cep']))
+                $student->address()->update($request->validated('address'));
 
-            // $student->guardians->delete();
-            // if ($request->has('guardians'))
-            //     $student->guardians()->createMany($request->validated('guardians'));
+            $guardians = [];
+            foreach ($request->validated('guardians') as $guardian)
+                if (!empty($guardian['cpf']))
+                    array_push($guardians, $guardian);
+                
+            if (!empty($guardians))
+                $student->guardians->delete();
+                $student->guardians()->createMany($request->validated('guardians'));
         });
 
         return redirect()->route('students.index', $student);

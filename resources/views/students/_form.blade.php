@@ -68,8 +68,8 @@
                 <input
                     type="date"
                     name="student[birth_date]"
-                    value="{{ old("student.enrollment_date", isset($student) ? $student->getRawOriginal('birth_date') : '') }}"
-                    class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    value="{{ old("student.enrollment_date", isset($student) ? $student->getRawOriginal("birth_date") : "") }}"
+                    class="focus:shadow-outline @error('student.birth_date') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.birth_date")
                     <span class="truncate text-red-500">
@@ -78,7 +78,7 @@
                 @enderror
             </div>
             <div
-                class="@error('student.cpf') mb-3 @else mb-5 @enderror w-3/12 pl-4"
+                class="@error('student.gender') mb-3 @else mb-5 @enderror w-3/12 pl-4"
             >
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
@@ -121,10 +121,12 @@
                     type="email"
                     name="student[email]"
                     value="{{ old("student.email", @$student->email) }}"
-                    class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    class="focus:shadow-outline @error('student.email') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
-                @error("student.cpf")
-                    <span class="truncate text-red-500">* Insira o e-mail</span>
+                @error("student.email")
+                    <span class="truncate text-red-500">
+                        * Insira pelo menos um contato válido.
+                    </span>
                 @enderror
             </div>
             <div class="w-2/6">
@@ -137,7 +139,7 @@
                 <input
                     type="date"
                     name="student[enrollment_date]"
-                    value="{{ old("student.enrollment_date", isset($student) ? $student->getRawOriginal('enrollment_date') : '') }}"
+                    value="{{ old("student.enrollment_date", isset($student) ? $student->getRawOriginal("enrollment_date") : "") }}"
                     class="focus:shadow-outline @error('student.enrollment_date') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.enrollment_date")
@@ -160,8 +162,8 @@
                     class="focus:shadow-outline @error('student.phone_number') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
                 @error("student.phone_number")
-                    <span class="truncate text-red-500">
-                        * Insira o número de telefone
+                    <span class="text-red-500">
+                        * Insira pelo menos um contato válido.
                     </span>
                 @enderror
             </div>
