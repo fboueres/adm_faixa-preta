@@ -45,7 +45,7 @@ class Student extends Model
      *
      * @var array
      */
-    protected $with = ['address'];
+    protected $with = ['address', 'guardians'];
     
     /**
      * Get the student phone number.

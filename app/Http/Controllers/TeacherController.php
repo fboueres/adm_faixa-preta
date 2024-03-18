@@ -12,7 +12,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return Teacher::all();
+        $teachers = Teacher::all();
+        
+        return view('teachers.index', compact('teachers'));
     }
 
     /**
@@ -20,7 +22,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('teachers.create');
     }
 
     /**
@@ -28,9 +30,9 @@ class TeacherController extends Controller
      */
     public function store(TeacherRequest $request)
     {
-        $teacher = Teacher::create($request->validated());
+        $teacher = Teacher::create($request->validated('teacher'));
 
-        return redirect()->route('teachers.show', $teacher);
+        return redirect()->route('teachers.index', $teacher);
     }
 
     /**
@@ -38,7 +40,7 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        return $teacher;
+        return redirect()->route('teachers.edit', $teacher);
     }
 
     /**
@@ -46,7 +48,7 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        return view('teachers.edit', compact('teacher'));
     }
 
     /**
@@ -54,9 +56,9 @@ class TeacherController extends Controller
      */
     public function update(TeacherRequest $request, Teacher $teacher)
     {
-        $teacher->update($request->validated());
+        $teacher->update($request->validated('teacher'));
 
-        return redirect()->route('teachers.show', $teacher);
+        return redirect()->route('teachers.edit', $teacher);
     }
 
     /**

@@ -317,7 +317,7 @@
                     <input
                         type="text"
                         name="guardians[0][cpf]"
-                        value="{{ old("guardians.0.cpf") }}"
+                        value="{{ old("guardians.0.cpf", @$student->guardians[0]->cpf) }}"
                         class="focus:shadow-outline @error('guardians.0.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.0.cpf")
@@ -336,7 +336,7 @@
                     <input
                         type="text"
                         name="guardians[0][full_name]"
-                        value="{{ old("guardians.0.full_name") }}"
+                        value="{{ old("guardians.0.full_name", @$student->guardians[0]->full_name) }}"
                         class="focus:shadow-outline @error('guardians.0.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.0.full_name")
@@ -355,7 +355,7 @@
                     <input
                         type="text"
                         name="guardians[0][affiliation]"
-                        value="{{ old("guardians.0.affiliation") }}"
+                        value="{{ old("guardians.0.affiliation", @$student->guardians[0]->affiliation) }}"
                         class="focus:shadow-outline @error('guardians.0.affiliation') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.0.affiliation")
@@ -376,7 +376,7 @@
                     <input
                         type="text"
                         name="guardians[1][cpf]"
-                        value="{{ old("guardians.1.cpf") }}"
+                        value="{{ old("guardians.1.cpf", @$student->guardians[1]->cpf) }}"
                         class="focus:shadow-outline @error('guardians.1.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.1.cpf")
@@ -395,7 +395,7 @@
                     <input
                         type="text"
                         name="guardians[1][full_name]"
-                        value="{{ old("guardians.1.full_name") }}"
+                        value="{{ old("guardians.1.full_name", @$student->guardians[1]->full_name) }}"
                         class="focus:shadow-outline @error('guardians.1.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.1.full_name")
@@ -414,7 +414,7 @@
                     <input
                         type="text"
                         name="guardians[1][affiliation]"
-                        value="{{ old("guardians.1.affiliation") }}"
+                        value="{{ old("guardians.1.affiliation", @$student->guardians[1]->affiliation) }}"
                         class="focus:shadow-outline @error('guardians.1.affiliation') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
                     @error("guardians.1.affiliation")

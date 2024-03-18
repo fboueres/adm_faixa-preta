@@ -33,6 +33,14 @@ class StudentRequest extends FormRequest
                 'cep' => preg_replace('/[^0-9]/', '', $this->address['cep']),
             ])
         ]);
+
+        $guardians = [];
+        foreach ($this->input('guardians') as $guardian) {
+            $guardian['cpf'] = preg_replace('/[^0-9]/', '', $guardian['cpf']);
+            $guardians[] = $guardian;
+        }
+
+        $this->merge(['guardians' => $guardians]);
     }
     
     /**
@@ -43,15 +51,15 @@ class StudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'student' => 'nullable|array|min:7|max:8',
-            'student.cpf' => ['nullable', 'string', new CPF],
-            'student.full_name' => 'nullable|string',
-            'student.birth_date' => 'nullable|date',
-            'student.gender' => ['nullable', Rule::in(['M', 'F'])],
-            'student.rank' => 'nullable|string',
-            'student.enrollment_date' => 'nullable|date',
-            // 'student.email' => 'required_without:student.phone_number|email',
-            // 'student.phone_number' => 'required_without:student.email|string|size:11',
+            'student' => 'required|array|min:7|max:8',
+            'student.cpf' => ['required', 'string', new CPF],
+            'student.full_name' => 'required|string',
+            'student.birth_date' => 'required|date',
+            'student.gender' => ['required', Rule::in(['M', 'F'])],
+            'student.rank' => 'required|string',
+            'student.enrollment_date' => 'required|date',
+            'student.email' => 'required_without:student.phone_number|email',
+            'student.phone_number' => 'required_without:student.email|string|size:11',
 
             'address' => ['nullable', 'array', 'size:5', function (string $attribute, mixed $value, Closure $fail) {
                 $empty_fields_count = collect($value)->filter(fn (mixed $value) => empty($value))->count();
@@ -88,7 +96,7 @@ class StudentRequest extends FormRequest
                     ]);
 
                     if ($validator->fails())
-                        $fail("The :attribute can't be partially filled.");
+                        $fail("Validation failed.");
                 }
             }],
         ];
