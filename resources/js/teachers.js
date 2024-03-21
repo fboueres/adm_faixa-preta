@@ -1,1 +1,1 @@
-import './teachers/create';
+import "./teachers/create";

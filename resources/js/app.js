@@ -1,5 +1,7 @@
-import './bootstrap';
+import "./bootstrap";
 
-import './students';
+import "./students";
 
-import './teachers';
+import "./teachers";
+
+import "./lessons";

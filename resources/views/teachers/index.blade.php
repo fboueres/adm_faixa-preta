@@ -1,9 +1,9 @@
-@extends("app-layout")
-@section("main")
+@extends('app-layout')
+@section('main')
     <section class="flex">
         <h1 class="text-3xl font-bold">Lista de Professores</h1>
         <a
-            href="{{ route("teachers.create") }}"
+            href="{{ route('teachers.create') }}"
             class="focus:shadow-outline ml-auto appearance-none rounded border px-5 py-2 leading-tight text-gray-700 shadow transition-transform duration-200 ease-in-out focus:outline-none active:scale-90"
         >
             <i class="fa-solid fa-plus mr-2"></i>
@@ -15,7 +15,9 @@
         <table class="w-full border text-left text-sm">
             <thead class="text-xs uppercase">
                 <tr>
-                    <th scope="col" class="border px-6 py-3">Nome do Professor</th>
+                    <th scope="col" class="border px-6 py-3">
+                        Nome do Professor
+                    </th>
                     <th scope="col" class="border px-6 py-3">Gênero</th>
                     <th scope="col" class="border px-6 py-3">Grau</th>
                     <th scope="col" class="border px-6 py-3">
@@ -46,17 +48,17 @@
                         </td>
                         <td class="flex justify-center gap-x-3 text-center">
                             <a
-                                href="{{ route("teachers.edit", $teacher) }}"
+                                href="{{ route('teachers.edit', $teacher) }}"
                                 class="my-1 inline-block appearance-none rounded border px-5 py-3 text-gray-700 shadow transition-transform duration-200 active:scale-90"
                             >
                                 <i class="fa-solid fa-pencil"></i>
                             </a>
                             <form
-                                action="{{ route("teachers.destroy", $teacher) }}"
+                                action="{{ route('teachers.destroy', $teacher) }}"
                                 method="POST"
                             >
                                 @csrf
-                                @method("DELETE")
+                                @method('DELETE')
                                 <button
                                     type="submit"
                                     class="my-1 appearance-none rounded border px-5 py-3 text-gray-700 shadow transition-transform duration-200 ease-in-out focus:outline-none active:scale-90"

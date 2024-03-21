@@ -12,7 +12,9 @@ class LessonController extends Controller
      */
     public function index()
     {
-        return Lesson::all();
+        $lessons = Lesson::all();
+
+        return view('lessons.index', compact('lessons'));
     }
 
     /**
@@ -20,7 +22,7 @@ class LessonController extends Controller
      */
     public function create()
     {
-        //
+        return view('lessons.create');
     }
 
     /**
@@ -38,7 +40,7 @@ class LessonController extends Controller
      */
     public function show(Lesson $lesson)
     {
-        return $lesson;
+        return redirect()->route('lessons.edit', $lesson);
     }
 
     /**
@@ -46,7 +48,7 @@ class LessonController extends Controller
      */
     public function edit(Lesson $lesson)
     {
-        //
+        return view('lessons.edit', compact('lesson'));
     }
 
     /**

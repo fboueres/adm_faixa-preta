@@ -6,7 +6,8 @@
           "*.blade.php"
         ],
         "options": {
-          "parser": "blade"
+          "parser": "blade",
+          "tabWidth": 4
         }
       }
     ]

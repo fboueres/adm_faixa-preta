@@ -1,13 +1,13 @@
 @extends('app-layout')
 @section('main')
     <section class="flex">
-        <h1 class="text-3xl font-bold">Lista de Alunos</h1>
+        <h1 class="text-3xl font-bold">Lista de Professores</h1>
         <a
-            href="{{ route('students.create') }}"
+            href="{{ route('lessons.create') }}"
             class="focus:shadow-outline ml-auto appearance-none rounded border px-5 py-2 leading-tight text-gray-700 shadow transition-transform duration-200 ease-in-out focus:outline-none active:scale-90"
         >
             <i class="fa-solid fa-plus mr-2"></i>
-            Cadastrar Novo Aluno
+            Cadastrar Novo Professor
         </a>
     </section>
     <hr class="my-3 border-t-2" />
@@ -15,11 +15,13 @@
         <table class="w-full border text-left text-sm">
             <thead class="text-xs uppercase">
                 <tr>
-                    <th scope="col" class="border px-6 py-3">Nome do Aluno</th>
+                    <th scope="col" class="border px-6 py-3">
+                        Nome do Professor
+                    </th>
                     <th scope="col" class="border px-6 py-3">Gênero</th>
                     <th scope="col" class="border px-6 py-3">Grau</th>
                     <th scope="col" class="border px-6 py-3">
-                        Data da Matrícula
+                        Data de Nascimento
                     </th>
                     <th scope="col" class="border px-6 py-3 text-center">
                         Ações
@@ -27,32 +29,32 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($students as $student)
+                @forelse ($lessons as $lesson)
                     <tr class="border">
                         <th
                             scope="row"
                             class="text-md whitespace-nowrap border px-6 py-4 font-medium"
                         >
-                            {{ $student->full_name }}
+                            {{ $lesson->full_name }}
                         </th>
                         <td class="text-md border px-6 py-4">
-                            {{ $student->gender }}
+                            {{ $lesson->gender }}
                         </td>
                         <td class="text-md border px-6 py-4">
-                            {{ $student->rank }}
+                            {{ $lesson->rank }}
                         </td>
                         <td class="text-md border px-6 py-4">
-                            {{ $student->enrollment_date }}
+                            {{ $lesson->birth_date }}
                         </td>
                         <td class="flex justify-center gap-x-3 text-center">
                             <a
-                                href="{{ route('students.edit', $student) }}"
+                                href="{{ route('lessons.edit', $lesson) }}"
                                 class="my-1 inline-block appearance-none rounded border px-5 py-3 text-gray-700 shadow transition-transform duration-200 active:scale-90"
                             >
                                 <i class="fa-solid fa-pencil"></i>
                             </a>
                             <form
-                                action="{{ route('students.destroy', $student) }}"
+                                action="{{ route('lessons.destroy', $lesson) }}"
                                 method="POST"
                             >
                                 @csrf
@@ -69,7 +71,7 @@
                 @empty
                     <tr>
                         <th colspan="5" class="text-md py-2 text-center">
-                            Nenhum aluno encontrado...
+                            Nenhum Professor encontrado...
                         </th>
                     </tr>
                 @endforelse

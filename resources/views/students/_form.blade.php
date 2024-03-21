@@ -1,7 +1,7 @@
 <section class="mb-3 flex w-full items-center">
     <h1 class="self-end text-xl font-bold">Dados do Aluno</h1>
     <a
-        href="{{ route("students.index") }}"
+        href="{{ route('students.index') }}"
         class="focus:shadow-outline ml-auto appearance-none rounded border px-5 py-2 leading-tight text-gray-700 shadow transition-transform duration-200 ease-in-out focus:outline-none active:scale-90"
     >
         <i class="fa-solid fa-arrow-left mr-2"></i>
@@ -18,7 +18,7 @@
 <section class="mb-3 w-full rounded-lg border-2 px-3 py-5">
     <div class="flex flex-row">
         <div class="flex w-2/3 flex-wrap">
-            <div class="@error('student.cpf') mb-3 @else mb-5 @enderror w-4/12">
+            <div class="@error('student.cpf') mb-3 @else mb-5 @enderrorw-4/12">
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
                     for="student[cpf]"
@@ -28,15 +28,15 @@
                 <input
                     type="text"
                     name="student[cpf]"
-                    value="{{ old("student.cpf", @$student->cpf) }}"
-                    class="focus:shadow-outline @error('student.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    value="{{ old('student.cpf', @$student->cpf) }}"
+                    class="focus:shadow-outline @error('student.cpf') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
-                @error("student.cpf")
+                @error('student.cpf')
                     <span class="truncate text-red-500">* Insira o CPF</span>
                 @enderror
             </div>
             <div
-                class="@error('student.full_name') mb-3 @else mb-5 @enderror w-8/12 pl-4"
+                class="@error('student.full_name') mb-3 @else mb-5 @enderrorw-8/12 pl-4"
             >
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
@@ -47,17 +47,17 @@
                 <input
                     type="text"
                     name="student[full_name]"
-                    value="{{ old("student.full_name", @$student->full_name) }}"
-                    class="focus:shadow-outline @error('student.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    value="{{ old('student.full_name', @$student->full_name) }}"
+                    class="focus:shadow-outline @error('student.full_name') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
-                @error("student.full_name")
+                @error('student.full_name')
                     <span class="truncate text-red-500">
                         * Insira o nome completo
                     </span>
                 @enderror
             </div>
             <div
-                class="@error('student.birth_date') mb-3 @else mb-5 @enderror w-4/12"
+                class="@error('student.birth_date') mb-3 @else mb-5 @enderrorw-4/12"
             >
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
@@ -68,17 +68,17 @@
                 <input
                     type="date"
                     name="student[birth_date]"
-                    value="{{ old("student.enrollment_date", isset($student) ? $student->getRawOriginal("birth_date") : "") }}"
-                    class="focus:shadow-outline @error('student.birth_date') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    value="{{ old('student.enrollment_date', isset($student) ? $student->getRawOriginal('birth_date') : '') }}"
+                    class="focus:shadow-outline @error('student.birth_date') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
-                @error("student.birth_date")
+                @error('student.birth_date')
                     <span class="truncate text-red-500">
                         * Insira a data de nascimento
                     </span>
                 @enderror
             </div>
             <div
-                class="@error('student.gender') mb-3 @else mb-5 @enderror w-3/12 pl-4"
+                class="@error('student.gender') mb-3 @else mb-5 @enderrorw-3/12 pl-4"
             >
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
@@ -87,7 +87,7 @@
                     Gênero
                 </label>
                 <select
-                    class="focus:shadow-outline @error('student.gender') border-red-300 @enderror w-full appearance-none rounded border bg-white px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    class="focus:shadow-outline @error('student.gender') border-red-300 @enderrorw-full appearance-none rounded border bg-white px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     name="student[gender]"
                 >
                     <option disabled selected value>Selecione</option>
@@ -104,12 +104,12 @@
                         Feminino
                     </option>
                 </select>
-                @error("student.gender")
+                @error('student.gender')
                     <span class="truncate text-red-500">* Insira o gênero</span>
                 @enderror
             </div>
             <div
-                class="@error('student.email') mb-3 @else mb-5 @enderror w-5/12 pl-4"
+                class="@error('student.email') mb-3 @else mb-5 @enderrorw-5/12 pl-4"
             >
                 <label
                     class="text-md mb-2 block font-bold text-gray-700"
@@ -120,10 +120,10 @@
                 <input
                     type="email"
                     name="student[email]"
-                    value="{{ old("student.email", @$student->email) }}"
-                    class="focus:shadow-outline @error('student.email') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    value="{{ old('student.email', @$student->email) }}"
+                    class="focus:shadow-outline @error('student.email') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
-                @error("student.email")
+                @error('student.email')
                     <span class="truncate text-red-500">
                         * Insira pelo menos um contato válido.
                     </span>
@@ -139,10 +139,10 @@
                 <input
                     type="date"
                     name="student[enrollment_date]"
-                    value="{{ old("student.enrollment_date", isset($student) ? $student->getRawOriginal("enrollment_date") : "") }}"
-                    class="focus:shadow-outline @error('student.enrollment_date') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    value="{{ old('student.enrollment_date', isset($student) ? $student->getRawOriginal('enrollment_date') : '') }}"
+                    class="focus:shadow-outline @error('student.enrollment_date') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
-                @error("student.enrollment_date")
+                @error('student.enrollment_date')
                     <span class="truncate text-red-500">
                         * Insira a data de matrícula
                     </span>
@@ -158,10 +158,10 @@
                 <input
                     type="text"
                     name="student[phone_number]"
-                    value="{{ old("student.phone_number", @$student->phone_number) }}"
-                    class="focus:shadow-outline @error('student.phone_number') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    value="{{ old('student.phone_number', @$student->phone_number) }}"
+                    class="focus:shadow-outline @error('student.phone_number') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
-                @error("student.phone_number")
+                @error('student.phone_number')
                     <span class="text-red-500">
                         * Insira pelo menos um contato válido.
                     </span>
@@ -177,10 +177,10 @@
                 <input
                     type="text"
                     name="student[rank]"
-                    value="{{ old("student.rank", @$student->rank) }}"
-                    class="focus:shadow-outline @error('student.rank') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                    value="{{ old('student.rank', @$student->rank) }}"
+                    class="focus:shadow-outline @error('student.rank') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                 />
-                @error("student.rank")
+                @error('student.rank')
                     <span class="truncate text-red-500">* Insira o Grau</span>
                 @enderror
             </div>
@@ -215,10 +215,10 @@
                     <input
                         type="text"
                         name="address[cep]"
-                        value="{{ old("address.cep", @$student->address->cep) }}"
-                        class="focus:shadow-outline @error('address.cep') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('address.cep', @$student->address->cep) }}"
+                        class="focus:shadow-outline @error('address.cep') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("address.cep")
+                    @error('address.cep')
                         <span class="truncate text-red-500">
                             * Insira o CEP
                         </span>
@@ -234,10 +234,10 @@
                     <input
                         type="text"
                         name="address[bairro]"
-                        value="{{ old("address.bairro", @$student->address->bairro) }}"
-                        class="focus:shadow-outline @error('address.bairro') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('address.bairro', @$student->address->bairro) }}"
+                        class="focus:shadow-outline @error('address.bairro') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("address.bairro")
+                    @error('address.bairro')
                         <span class="truncate text-red-500">
                             * Insira o bairro
                         </span>
@@ -253,10 +253,10 @@
                     <input
                         type="text"
                         name="address[rua]"
-                        value="{{ old("address.rua", @$student->address->rua) }}"
-                        class="focus:shadow-outline @error('address.rua') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('address.rua', @$student->address->rua) }}"
+                        class="focus:shadow-outline @error('address.rua') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("address.rua")
+                    @error('address.rua')
                         <span class="truncate text-red-500">
                             * Insira a rua
                         </span>
@@ -272,10 +272,10 @@
                     <input
                         type="text"
                         name="address[quadra]"
-                        value="{{ old("address.quadra", @$student->address->quadra) }}"
-                        class="focus:shadow-outline @error('address.quadra') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('address.quadra', @$student->address->quadra) }}"
+                        class="focus:shadow-outline @error('address.quadra') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("address.quadra")
+                    @error('address.quadra')
                         <span class="truncate text-red-500">
                             * Insira a quadra
                         </span>
@@ -291,10 +291,10 @@
                     <input
                         type="text"
                         name="address[numero]"
-                        value="{{ old("address.numero", @$student->address->numero) }}"
+                        value="{{ old('address.numero', @$student->address->numero) }}"
                         class="focus:shadow-outline @error('address.rua') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("address.numero")
+                    @error('address.numero')
                         <span class="truncate text-red-500">
                             * Insira o número
                         </span>
@@ -317,10 +317,10 @@
                     <input
                         type="text"
                         name="guardians[0][cpf]"
-                        value="{{ old("guardians.0.cpf", @$student->guardians[0]->cpf) }}"
-                        class="focus:shadow-outline @error('guardians.0.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('guardians.0.cpf', @$student->guardians[0]->cpf) }}"
+                        class="focus:shadow-outline @error('guardians.0.cpf') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("guardians.0.cpf")
+                    @error('guardians.0.cpf')
                         <span class="truncate text-red-500">
                             * Insira o CPF
                         </span>
@@ -336,10 +336,10 @@
                     <input
                         type="text"
                         name="guardians[0][full_name]"
-                        value="{{ old("guardians.0.full_name", @$student->guardians[0]->full_name) }}"
-                        class="focus:shadow-outline @error('guardians.0.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('guardians.0.full_name', @$student->guardians[0]->full_name) }}"
+                        class="focus:shadow-outline @error('guardians.0.full_name') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("guardians.0.full_name")
+                    @error('guardians.0.full_name')
                         <span class="truncate text-red-500">
                             * Insira o nome completo
                         </span>
@@ -355,10 +355,10 @@
                     <input
                         type="text"
                         name="guardians[0][affiliation]"
-                        value="{{ old("guardians.0.affiliation", @$student->guardians[0]->affiliation) }}"
-                        class="focus:shadow-outline @error('guardians.0.affiliation') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('guardians.0.affiliation', @$student->guardians[0]->affiliation) }}"
+                        class="focus:shadow-outline @error('guardians.0.affiliation') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("guardians.0.affiliation")
+                    @error('guardians.0.affiliation')
                         <span class="truncate text-red-500">
                             * Insira a afiliação
                         </span>
@@ -376,10 +376,10 @@
                     <input
                         type="text"
                         name="guardians[1][cpf]"
-                        value="{{ old("guardians.1.cpf", @$student->guardians[1]->cpf) }}"
-                        class="focus:shadow-outline @error('guardians.1.cpf') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('guardians.1.cpf', @$student->guardians[1]->cpf) }}"
+                        class="focus:shadow-outline @error('guardians.1.cpf') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("guardians.1.cpf")
+                    @error('guardians.1.cpf')
                         <span class="truncate text-red-500">
                             * Insira o CPF
                         </span>
@@ -395,10 +395,10 @@
                     <input
                         type="text"
                         name="guardians[1][full_name]"
-                        value="{{ old("guardians.1.full_name", @$student->guardians[1]->full_name) }}"
-                        class="focus:shadow-outline @error('guardians.1.full_name') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('guardians.1.full_name', @$student->guardians[1]->full_name) }}"
+                        class="focus:shadow-outline @error('guardians.1.full_name') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("guardians.1.full_name")
+                    @error('guardians.1.full_name')
                         <span class="truncate text-red-500">
                             * Insira o nome completo
                         </span>
@@ -414,10 +414,10 @@
                     <input
                         type="text"
                         name="guardians[1][affiliation]"
-                        value="{{ old("guardians.1.affiliation", @$student->guardians[1]->affiliation) }}"
-                        class="focus:shadow-outline @error('guardians.1.affiliation') border-red-300 @enderror w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                        value="{{ old('guardians.1.affiliation', @$student->guardians[1]->affiliation) }}"
+                        class="focus:shadow-outline @error('guardians.1.affiliation') border-red-300 @enderrorw-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                     />
-                    @error("guardians.1.affiliation")
+                    @error('guardians.1.affiliation')
                         <span class="truncate text-red-500">
                             * Insira a afiliação
                         </span>
